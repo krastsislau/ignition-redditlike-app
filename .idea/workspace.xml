@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ba5e69b-01e0-47a3-962f-6be3ad1b676a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/apollo-client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/feed/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/new/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/post/[id].tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/sign-in/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/sign-up/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/hello.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +40,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
+    "ts.external.directory.path": "/home/krastsislau/Desktop/ignition-redditlike-app/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -46,7 +52,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1661696014627</updated>
-      <workItem from="1661696016445" duration="2110000" />
+      <workItem from="1661696016445" duration="3307000" />
     </task>
     <servers />
   </component>
