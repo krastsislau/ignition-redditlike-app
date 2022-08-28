@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ba5e69b-01e0-47a3-962f-6be3ad1b676a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/domain/mutation.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/query.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/types.ts" afterDir="false" />
+    <list default="true" id="9ba5e69b-01e0-47a3-962f-6be3ad1b676a" name="Changes" comment="added react infinite scroll for feed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo-client.js" beforeDir="false" afterPath="$PROJECT_DIR$/apollo-client.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/domain/query.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/feed/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/feed/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
     </list>
@@ -52,8 +49,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1661696014627</updated>
-      <workItem from="1661696016445" duration="11198000" />
+      <workItem from="1661696016445" duration="13765000" />
     </task>
+    <task id="LOCAL-00001" summary="adding api stuff">
+      <created>1661718424971</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1661718424971</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added react infinite scroll for feed">
+      <created>1661719586014</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1661719586014</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -69,5 +81,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="adding api stuff" />
+    <MESSAGE value="added react infinite scroll for feed" />
+    <option name="LAST_COMMIT_MESSAGE" value="added react infinite scroll for feed" />
   </component>
 </project>
