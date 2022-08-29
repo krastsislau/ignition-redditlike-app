@@ -1,5 +1,6 @@
 import { Link } from "../domain/types";
 import { SmartLink } from "./SmartLink";
+import { UpvoteList } from "./UpvoteList";
 import styles from "../styles/LinkCard.module.css";
 
 interface LinkCardProps {
@@ -20,7 +21,7 @@ const LinkCard = (props: LinkCardProps) => {
             </div>
             <div className={styles.cardBottomSection}>
                 <button>upvote</button>
-
+                <UpvoteList votes={props.link.votes}/>
             </div>
         </div>
     );

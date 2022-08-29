@@ -1,0 +1,12 @@
+/*
+This took some toggling but hopefully it looks fine
+*/
+
+.Avatar {
+    padding: 3px;
+    text-align: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    font-size: 14px;
+}

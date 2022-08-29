@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    min-width: 300px;
     border-radius: 20px;
     background: white;
 }
@@ -15,4 +16,5 @@
     padding: 20px;
     display: flex;
     flex-direction: row;
+    gap: 20px;
 }
