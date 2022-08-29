@@ -39,7 +39,7 @@ const Feed: NextPage = (props: any) => {
             hasMore={hasMore}
             loader={<h3>Loading...</h3>}
             endMessage={<h3>You've reached the bottom of the feed</h3>}>
-                { feed.links.map((link: Link) => <div style={{
+                { feed.links.map((link: Link) => <div key={link.id} style={{
                     border: "red solid 1px",
                     height: 100
                 }}>
