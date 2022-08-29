@@ -51,6 +51,7 @@ const getFilteredOrderedPaginatedLinks =
                   }
                   votes {
                     user {
+                      id
                       name
                     }
                   }

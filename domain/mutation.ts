@@ -15,6 +15,7 @@ const signUp = async (email: string,
                        password: "${password}") {
                     token
                     user {
+                        id
                         name
                     }
                 }
@@ -33,6 +34,7 @@ const signIn = async (email: string,
                       password: "${password}") {
                     token
                     user {
+                        id
                         name
                     }
                 }
