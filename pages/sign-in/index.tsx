@@ -3,6 +3,8 @@ import type { NextPage } from 'next';
 
 import { signIn } from "../../domain/mutation";
 import { storage } from "../../storage";
+import { Input } from 'antd';
+import styles from "../../styles/Form.module.css";
 
 interface SignInFormState {
     email: string,
@@ -48,16 +50,12 @@ class SignInForm extends React.Component<any, SignInFormState> {
 
     render() {
         return (
-            <form style={{
-                display: 'flex',
-                flexDirection: 'column',
-                width: 200,
-            }} onSubmit={this.handleSubmit}>
+            <form className={styles.form} onSubmit={this.handleSubmit}>
                 Sign in
-                <input type='text' name='email' placeholder='email'
+                <Input type='text' name='email' placeholder='email'
                        value={this.state.email}
                        onChange={(event) => this.handleEmailChange(event)}/>
-                <input type='password' name='password' placeholder='password'
+                <Input type='password' name='password' placeholder='password'
                        value={this.state.password}
                        onChange={(event) => this.handlePasswordChange(event)}/>
                 <button type='submit'>sign in</button>

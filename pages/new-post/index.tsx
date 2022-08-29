@@ -1,5 +1,7 @@
 import React from "react";
 import type { NextPage } from 'next';
+import { Input } from 'antd';
+import styles from "../../styles/Form.module.css";
 
 import { postNewLink } from "../../domain/mutation";
 
@@ -43,16 +45,12 @@ class NewPostForm extends React.Component<any, NewPostFormState> {
 
     render() {
         return (
-            <form style={{
-                display: 'flex',
-                flexDirection: 'column',
-                width: 200,
-            }} onSubmit={this.handleSubmit}>
+            <form className={styles.form} onSubmit={this.handleSubmit}>
                 Create new post
-                <input type='text' name='url' placeholder='url'
+                <Input type='text' name='url' placeholder='url'
                        value={this.state.url}
                        onChange={(event) => this.handleUrlChange(event)}/>
-                <input type='text' name='description' placeholder='description'
+                <Input type='text' name='description' placeholder='description'
                        value={this.state.description}
                        onChange={(event) => this.handleDescriptionChange(event)}/>
                 <button type='submit'>create new post</button>
