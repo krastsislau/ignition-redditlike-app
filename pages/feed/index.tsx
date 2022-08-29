@@ -6,7 +6,7 @@ Other possible solutions:
 - https://swr.vercel.app/docs/pagination#useswrinfinite as mentioned in https://www.reddit.com/r/nextjs/comments/p7gjox/how_can_i_do_infinite_scrolling_in_next_with/
 \*/
 
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import type { NextPage } from 'next';
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -14,6 +14,8 @@ import { getFilteredOrderedPaginatedLinks } from "../../domain/query";
 import { Feed, Link, User } from "../../domain/types";
 import { storage } from "../../storage";
 import NextLink from "next/link";   // alt name bc conflict w domain/types/Link
+import { LinkCard } from "../../components/LinkCard";
+import styles from "../../styles/InfiniteScroll.module.css";
 
 export async function getServerSideProps() {
     return getFilteredOrderedPaginatedLinks("", 10, 0)
@@ -70,21 +72,16 @@ const Feed: NextPage = (props: any) => {
                 }
             </div>
             <InfiniteScroll
-                style={{
-                    marginTop: 100,
-                }}
+                className={styles.infiniteScroll}
                 dataLength={feed.links.length}
                 next={getMoreLinks}
                 hasMore={hasMore}
                 loader={<h3>Loading...</h3>}
                 endMessage={<h3>You've reached the bottom of the feed</h3>}>
-                    { feed.links.map((link: Link, index) => <div key={index} style={{
-                        border: "red solid 1px",
-                        height: 100,
-                        fontStyle: link.description ? 'normal' : 'italic',
-                    }}>
-                        { link.description ? link.description : '(no description)' }
-                    </div>) }
+                    {
+                        feed.links.map((link: Link, index) =>
+                            <LinkCard link={link} key={index}/>)
+                    }
             </InfiniteScroll>
         </>
     );
