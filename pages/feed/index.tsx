@@ -80,9 +80,10 @@ const Feed: NextPage = (props: any) => {
                 endMessage={<h3>You've reached the bottom of the feed</h3>}>
                     { feed.links.map((link: Link, index) => <div key={index} style={{
                         border: "red solid 1px",
-                        height: 100
+                        height: 100,
+                        fontStyle: link.description ? 'normal' : 'italic',
                     }}>
-                        { link.description }
+                        { link.description ? link.description : '(no description)' }
                     </div>) }
             </InfiniteScroll>
         </>
