@@ -7,9 +7,10 @@ interface SignUpFormState {
     email: string,
     name: string,
     password: string,
+    success: boolean | undefined,
 }
 
-// todo: move to components maybe
+// todo: move to components
 class SignUpForm extends React.Component<any, SignUpFormState> {
     constructor(props: any) {
         super(props);
@@ -17,6 +18,7 @@ class SignUpForm extends React.Component<any, SignUpFormState> {
             email: '',
             name: '',
             password: '',
+            success: undefined,
         };
 
         this.handleEmailChange = this.handleEmailChange.bind(this);

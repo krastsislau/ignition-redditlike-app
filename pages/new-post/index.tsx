@@ -6,15 +6,17 @@ import { postNewLink } from "../../domain/mutation";
 interface NewPostFormState {
     url: string,
     description: string,
+    success: boolean | undefined,
 }
 
-// todo: move to components maybe
+// todo: move to components
 class NewPostForm extends React.Component<any, NewPostFormState> {
     constructor(props: any) {
         super(props);
         this.state = {
             url: '',
             description: '',
+            success: undefined,
         };
 
         this.handleUrlChange = this.handleUrlChange.bind(this);
@@ -35,7 +37,8 @@ class NewPostForm extends React.Component<any, NewPostFormState> {
         console.log(this.state);
 
         postNewLink(this.state.url, this.state.description)
-            .then(data => console.log(data));
+            .then(data => console.log(data))
+            .catch(err => console.log(err));
     }
 
     render() {

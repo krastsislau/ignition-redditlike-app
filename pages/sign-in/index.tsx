@@ -2,19 +2,22 @@ import React from "react";
 import type { NextPage } from 'next';
 
 import { signIn } from "../../domain/mutation";
+import { storage } from "../../storage";
 
 interface SignInFormState {
     email: string,
     password: string,
+    success: boolean | undefined,
 }
 
-// todo: move to components maybe
+// todo: move to components
 class SignInForm extends React.Component<any, SignInFormState> {
     constructor(props: any) {
         super(props);
         this.state = {
             email: '',
             password: '',
+            success: undefined,
         };
 
         this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -35,7 +38,12 @@ class SignInForm extends React.Component<any, SignInFormState> {
         console.log(this.state);
 
         signIn(this.state.email, this.state.password)
-            .then(data => console.log(data));
+            .then(data => {
+                console.log(data);
+                storage.setToken(data.token);
+                storage.setUser(data.user);
+            })
+            .catch(err => console.log(err))
     }
 
     render() {
