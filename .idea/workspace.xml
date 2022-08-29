@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ba5e69b-01e0-47a3-962f-6be3ad1b676a" name="Changes" comment="adding styles now">
+    <list default="true" id="9ba5e69b-01e0-47a3-962f-6be3ad1b676a" name="Changes" comment="now getting user ids to later use them to check if a user already upvoted a post">
       <change afterPath="$PROJECT_DIR$/components/FeedSubHeader.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/components/Header.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/components/Layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/SmartLink.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/styles/Header.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/LinkCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/LinkCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/mutation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/domain/mutation.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/domain/query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/feed/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/feed/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +51,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1661696014627</updated>
-      <workItem from="1661696016445" duration="32374000" />
+      <workItem from="1661696016445" duration="33898000" />
     </task>
     <task id="LOCAL-00001" summary="adding api stuff">
       <created>1661718424971</created>
@@ -147,7 +144,28 @@
       <option name="project" value="LOCAL" />
       <updated>1661775050426</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="links are smart now">
+      <created>1661776537663</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1661776537663</updated>
+    </task>
+    <task id="LOCAL-00015" summary="beautified forms a bit">
+      <created>1661777325985</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1661777325985</updated>
+    </task>
+    <task id="LOCAL-00016" summary="now getting user ids to later use them to check if a user already upvoted a post">
+      <created>1661777382667</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1661777382667</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,6 +196,9 @@
     <MESSAGE value="a minor update to displaying description in feed" />
     <MESSAGE value="added antd" />
     <MESSAGE value="adding styles now" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding styles now" />
+    <MESSAGE value="links are smart now" />
+    <MESSAGE value="beautified forms a bit" />
+    <MESSAGE value="now getting user ids to later use them to check if a user already upvoted a post" />
+    <option name="LAST_COMMIT_MESSAGE" value="now getting user ids to later use them to check if a user already upvoted a post" />
   </component>
 </project>
