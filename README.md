@@ -7,6 +7,7 @@
 ## Summary:
 
 - Next.js + Apollo client for GraphQL + Typescript
+- Ant Design
 - ...
 
 ## Things to note
