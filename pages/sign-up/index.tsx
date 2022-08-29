@@ -4,6 +4,7 @@ import type { NextPage } from 'next';
 import { signUp } from "../../domain/mutation";
 import { Input } from 'antd';
 import styles from "../../styles/Form.module.css";
+import Link from "next/link";
 
 interface SignUpFormState {
     email: string,
@@ -46,7 +47,14 @@ class SignUpForm extends React.Component<any, SignUpFormState> {
         console.log(this.state);
 
         signUp(this.state.email, this.state.password, this.state.name)
-            .then(data => console.log(data));
+            .then(data => {
+                console.log(data);
+                this.setState({ success: true });
+            })
+            .catch(err => {
+                console.log(err);
+                this.setState({ success: false });
+            });
     }
 
     render() {
@@ -62,7 +70,18 @@ class SignUpForm extends React.Component<any, SignUpFormState> {
                 <Input type='password' name='password' placeholder='password'
                        value={this.state.password}
                        onChange={(event) => this.handlePasswordChange(event)}/>
-                <button type='submit'>sign up</button>
+                {
+                    typeof this.state.success === 'undefined' ?
+                        <button type='submit'>sign up</button> :
+                        this.state.success ?
+                            <>
+                                You have successfully signed up!
+                                <Link href='/feed'>Go to feed</Link>
+                            </> :
+                            <>
+                                Something went wrong!
+                            </>
+                }
             </form>
         );
     }

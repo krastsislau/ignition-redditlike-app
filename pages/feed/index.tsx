@@ -17,6 +17,7 @@ import { Input } from "antd";
 import { LinkCard } from "../../components/LinkCard";
 import styles from "../../styles/Feed.module.css";
 
+const { Search } = Input;
 
 export async function getServerSideProps() {
     return getFilteredOrderedPaginatedLinks("", 10, 0)
@@ -70,11 +71,20 @@ const Feed: NextPage = (props: any) => {
             <div className={styles.feedControlPanel}>
                 Feed: {feed.count} post(s)
                 <div>
-                    <Input placeholder='filter results' onChange={(event) => {
-                        setFilter(event.target.value);
-                        getFilteredOrderedPaginatedLinks(event.target.value, 10, 0)
-                            .then(data => setFeed(data));
-                    }}/>
+                    <Search
+                        placeholder="filter results"
+                        allowClear
+                        enterButton="search"
+                        size="large"
+                        onSearch={(value: string) => {
+                            setFilter(value);
+                            getFilteredOrderedPaginatedLinks(value, 10, 0)
+                                .then(data => {
+                                    console.log(data);
+                                    setFeed(data);
+                                });
+                        }}
+                    />
                 </div>
             </div>
             {
@@ -88,7 +98,7 @@ const Feed: NextPage = (props: any) => {
                     endMessage={<h3>You've reached the bottom of the feed</h3>}>
                     {
                         feed.links.map((link: Link, index) =>
-                            <LinkCard link={link} key={index} user={user}/>)
+                            <LinkCard link={link} key={link.id} user={user}/>)
                     }
                 </InfiniteScroll>
             }

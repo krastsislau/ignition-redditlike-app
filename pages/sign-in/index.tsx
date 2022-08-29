@@ -5,6 +5,7 @@ import { signIn } from "../../domain/mutation";
 import { storage } from "../../storage";
 import { Input } from 'antd';
 import styles from "../../styles/Form.module.css";
+import Link from "next/link";
 
 interface SignInFormState {
     email: string,
@@ -44,8 +45,12 @@ class SignInForm extends React.Component<any, SignInFormState> {
                 console.log(data);
                 storage.setToken(data.token);
                 storage.setUser(data.user);
+                this.setState({ success: true });
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err);
+                this.setState({ success: false });
+            })
     }
 
     render() {
@@ -58,7 +63,18 @@ class SignInForm extends React.Component<any, SignInFormState> {
                 <Input type='password' name='password' placeholder='password'
                        value={this.state.password}
                        onChange={(event) => this.handlePasswordChange(event)}/>
-                <button type='submit'>sign in</button>
+                {
+                    typeof this.state.success === 'undefined' ?
+                        <button type='submit'>sign in</button> :
+                        this.state.success ?
+                            <>
+                                You have successfully signed in!
+                                <Link href='/feed'>Go to feed</Link>
+                            </> :
+                            <>
+                                Something went wrong!
+                            </>
+                }
             </form>
         );
     }

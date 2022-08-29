@@ -16,7 +16,7 @@ const UpvoteList = (props: UpvoteListProps) => {
                 props.votes.length
                     ?
                     props.votes.slice(0, 3).map((vote, index) =>
-                    <Avatar key={index} className={avatarStyles.Avatar}
+                    <Avatar key={vote.id} className={avatarStyles.Avatar}
                             style={{
                                 fontStyle: vote.user.name ? 'normal' : 'italic',
                                 background: vote.user.name ? colors[vote.user.name[0].charCodeAt(0) % colors.length] :

@@ -4,6 +4,7 @@ import { Input } from 'antd';
 import styles from "../../styles/Form.module.css";
 
 import { postNewLink } from "../../domain/mutation";
+import Link from "next/link";
 
 interface NewPostFormState {
     url: string,
@@ -39,8 +40,14 @@ class NewPostForm extends React.Component<any, NewPostFormState> {
         console.log(this.state);
 
         postNewLink(this.state.url, this.state.description)
-            .then(data => console.log(data))
-            .catch(err => console.log(err));
+            .then(data => {
+                console.log(data);
+                this.setState({ success: true });
+            })
+            .catch(err => {
+                console.log(err);
+                this.setState({ success: false });
+            });
     }
 
     render() {
@@ -53,7 +60,18 @@ class NewPostForm extends React.Component<any, NewPostFormState> {
                 <Input type='text' name='description' placeholder='description'
                        value={this.state.description}
                        onChange={(event) => this.handleDescriptionChange(event)}/>
-                <button type='submit'>create new post</button>
+                {
+                    typeof this.state.success === 'undefined' ?
+                        <button type='submit'>create post</button> :
+                        this.state.success ?
+                            <>
+                                You have successfully created new post!
+                                <Link href='/feed'>Go to feed</Link>
+                            </> :
+                            <>
+                                Something went wrong!
+                            </>
+                }
             </form>
         );
     }

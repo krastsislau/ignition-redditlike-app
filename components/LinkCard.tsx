@@ -22,7 +22,6 @@ const LinkCard = (props: LinkCardProps) => {
     };
 
     useEffect(() => {
-        console.log(props.user)
         if (typeof props.user !== 'undefined' &&
             props.link.votes.map(vote => vote.user.id)
                 .includes(props.user.id)) {
