@@ -1,3 +1,9 @@
+/*\
+Ok, so this approach is using client-side rendering which is fine but not good.
+
+The other approach might be better.
+\*/
+
 import { useState } from "react";
 import type { NextPage } from 'next';
 import InfiniteScroll from "react-infinite-scroll-component";

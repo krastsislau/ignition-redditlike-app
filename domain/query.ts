@@ -31,7 +31,7 @@ const getAllLinks = async () : Promise<Feed> => {
     }).then(res => res.data);
 }
 
-// get filtered, ordered, and paginated links
+// Get filtered, ordered, and paginated links
 const getFilteredOrderedPaginatedLinks =
     async (pattern: string,
            // todo: add order rules
