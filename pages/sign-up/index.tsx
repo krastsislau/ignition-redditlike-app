@@ -5,12 +5,14 @@ import { signUp } from "../../domain/mutation";
 import { Input } from 'antd';
 import styles from "../../styles/Form.module.css";
 import Link from "next/link";
+import {storage} from "../../storage";
 
 interface SignUpFormState {
     email: string,
     name: string,
     password: string,
     success: boolean | undefined,
+    isSignedIn: boolean,
 }
 
 // todo: move to components
@@ -22,6 +24,7 @@ class SignUpForm extends React.Component<any, SignUpFormState> {
             name: '',
             password: '',
             success: undefined,
+            isSignedIn: false,
         };
 
         this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -57,31 +60,53 @@ class SignUpForm extends React.Component<any, SignUpFormState> {
             });
     }
 
+    componentDidMount() {
+        const user = storage.getUser();
+        if (user) {
+            this.setState({ isSignedIn: true });
+        }
+    }
+
     render() {
         return (
             <form className={styles.form} onSubmit={this.handleSubmit}>
                 <Link href='/'>Go back to main page</Link>
-                Sign up
-                <Input type='text' name='email' placeholder='email'
-                       value={this.state.email}
-                       onChange={(event) => this.handleEmailChange(event)}/>
-                <Input type='text' name='name' placeholder='name'
-                       value={this.state.name}
-                       onChange={(event) => this.handleNameChange(event)}/>
-                <Input type='password' name='password' placeholder='password'
-                       value={this.state.password}
-                       onChange={(event) => this.handlePasswordChange(event)}/>
                 {
-                    typeof this.state.success === 'undefined' ?
-                        <button type='submit'>sign up</button> :
-                        this.state.success ?
-                            <>
-                                You have successfully signed up!
-                                <Link href='/feed'>Go to feed</Link>
-                            </> :
-                            <>
-                                Something went wrong!
-                            </>
+                    this.state.isSignedIn ?
+                        <>
+                            You are already signed in
+                            <button onClick={(event: any) => {
+                                event.preventDefault();
+                                storage.clearUser();
+                                storage.clearToken();
+                                this.setState({ isSignedIn: false });
+                            }}>Sign out</button>
+                        </>
+                        :
+                        <>
+                            Sign up
+                            <Input type='text' name='email' placeholder='email'
+                                   value={this.state.email}
+                                   onChange={(event) => this.handleEmailChange(event)}/>
+                            <Input type='text' name='name' placeholder='name'
+                                   value={this.state.name}
+                                   onChange={(event) => this.handleNameChange(event)}/>
+                            <Input type='password' name='password' placeholder='password'
+                                   value={this.state.password}
+                                   onChange={(event) => this.handlePasswordChange(event)}/>
+                            {
+                                typeof this.state.success === 'undefined' ?
+                                    <button type='submit'>sign up</button> :
+                                    this.state.success ?
+                                        <>
+                                            You have successfully signed up!
+                                            <Link href='/feed'>Go to feed</Link>
+                                        </> :
+                                        <>
+                                            Something went wrong!
+                                        </>
+                            }
+                        </>
                 }
             </form>
         );
