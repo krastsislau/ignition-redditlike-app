@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ba5e69b-01e0-47a3-962f-6be3ad1b676a" name="Changes" comment="fixed component key issues">
+    <list default="true" id="9ba5e69b-01e0-47a3-962f-6be3ad1b676a" name="Changes" comment="readme update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/domain/query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/domain/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/feed/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/feed/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/Feed.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/Feed.module.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +50,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1661696014627</updated>
-      <workItem from="1661696016445" duration="46670000" />
+      <workItem from="1661696016445" duration="49511000" />
     </task>
     <task id="LOCAL-00001" summary="adding api stuff">
       <created>1661718424971</created>
@@ -210,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661790633811</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="readme update">
+      <created>1661790745767</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1661790745767</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,7 +247,6 @@
     <MESSAGE value="added pages for sign in, sign up, and new post; also some minor changes" />
     <MESSAGE value="almost there in terms of functionality" />
     <MESSAGE value="eslint weird error tmp silenced bc it's not really important imo" />
-    <MESSAGE value="readme update" />
     <MESSAGE value="a minor update to displaying description in feed" />
     <MESSAGE value="added antd" />
     <MESSAGE value="adding styles now" />
@@ -251,6 +260,7 @@
     <MESSAGE value="added feed filtering" />
     <MESSAGE value="upvotes implemented" />
     <MESSAGE value="fixed component key issues" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed component key issues" />
+    <MESSAGE value="readme update" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme update" />
   </component>
 </project>

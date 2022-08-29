@@ -1,9 +1,11 @@
 .feedControlPanel {
-    height: 100px;
+    height: 150px;
     padding: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
     align-items: center;
     background: white;
     font-size: 20px;
@@ -15,4 +17,15 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
+}
+
+.settingsContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.sortRuleSelect {
+    width: 300px;
 }

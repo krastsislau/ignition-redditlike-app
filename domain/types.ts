@@ -29,3 +29,11 @@ export type Vote = {
     link: Link,
     user: User,
 };
+
+export enum LinkSortRule {
+    None,
+    DescriptionAsc,
+    DescriptionDesc,
+    UrlAsc,
+    UrlDesc,
+}
