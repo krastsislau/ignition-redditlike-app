@@ -20,7 +20,11 @@ import styles from "../../styles/InfiniteScroll.module.css";
 export async function getServerSideProps() {
     return getFilteredOrderedPaginatedLinks("", 10, 0)
         .then(data => {
-            return { props: { ...data } }
+            return {
+                props: {
+                    ...data,
+                }
+            }
         })
         .catch(err => console.log(err));
 }
@@ -54,6 +58,7 @@ const Feed: NextPage = (props: any) => {
 
     return (
         <>
+            { /* tmp div below */ }
             <div style={{
                 position: 'fixed',
                 top: 0,
