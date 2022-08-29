@@ -57,25 +57,6 @@ const Feed: NextPage = (props: any) => {
     }, []);
 
     return (
-        <>
-            { /* tmp div below */ }
-            <div style={{
-                position: 'fixed',
-                top: 0,
-                width: '100%',
-                background: 'white',
-                height: 100,
-                border: "black solid 4px",
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 10,
-            }}>
-                You are {user ? `signed in as ${user.name}` : 'not signed in'}.
-                {
-                    user &&
-                    <NextLink href='/new-post'>Create a post</NextLink>
-                }
-            </div>
             <InfiniteScroll
                 className={styles.infiniteScroll}
                 dataLength={feed.links.length}
@@ -88,7 +69,6 @@ const Feed: NextPage = (props: any) => {
                             <LinkCard link={link} key={index}/>)
                     }
             </InfiniteScroll>
-        </>
     );
 };
 

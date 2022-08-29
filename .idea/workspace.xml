@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ba5e69b-01e0-47a3-962f-6be3ad1b676a" name="Changes" comment="added upvote list in link card">
+    <list default="true" id="9ba5e69b-01e0-47a3-962f-6be3ad1b676a" name="Changes" comment="a few minor feed code changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/LinkCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/LinkCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/feed/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/feed/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/Avatar.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/Avatar.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/InfiniteScroll.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/InfiniteScroll.module.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +52,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1661696014627</updated>
-      <workItem from="1661696016445" duration="36482000" />
+      <workItem from="1661696016445" duration="38756000" />
     </task>
     <task id="LOCAL-00001" summary="adding api stuff">
       <created>1661718424971</created>
@@ -176,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661780382747</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="a few minor feed code changes">
+      <created>1661780595447</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1661780595447</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,6 +223,7 @@
     <MESSAGE value="now getting user ids to later use them to check if a user already upvoted a post" />
     <MESSAGE value="added some new components for layout" />
     <MESSAGE value="added upvote list in link card" />
-    <option name="LAST_COMMIT_MESSAGE" value="added upvote list in link card" />
+    <MESSAGE value="a few minor feed code changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="a few minor feed code changes" />
   </component>
 </project>

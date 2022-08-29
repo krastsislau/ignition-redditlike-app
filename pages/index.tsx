@@ -13,6 +13,7 @@ const Home: NextPage = () => {
             <main style={{
                 display: 'flex',
                 flexDirection: 'column',
+                alignItems: 'center',
                 gap: 20
             }}>
                 <h1>
