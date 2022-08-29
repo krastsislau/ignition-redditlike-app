@@ -14,4 +14,4 @@
 
 - I don't have prior experience with Apollo and GraphQL
 - The only experience I have with Next is [my CV](https://rasteeslove.web.app/)
-- ...
+- Either way, the app works great

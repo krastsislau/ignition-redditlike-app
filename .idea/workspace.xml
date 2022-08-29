@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ba5e69b-01e0-47a3-962f-6be3ad1b676a" name="Changes" comment="improved forms and added navigation from them">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/sign-in/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/sign-in/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/sign-up/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/sign-up/index.tsx" afterDir="false" />
+    <list default="true" id="9ba5e69b-01e0-47a3-962f-6be3ad1b676a" name="Changes" comment="added more logic to auth forms">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +46,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1661696014627</updated>
-      <workItem from="1661696016445" duration="51017000" />
+      <workItem from="1661696016445" duration="51743000" />
     </task>
     <task id="LOCAL-00001" summary="adding api stuff">
       <created>1661718424971</created>
@@ -232,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661794752345</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="added more logic to auth forms">
+      <created>1661795132904</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1661795132904</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,7 +255,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="adding api stuff" />
     <MESSAGE value="added react infinite scroll for feed" />
     <MESSAGE value="infinitely scrollable feed demo completed" />
     <MESSAGE value="added storage functions" />
@@ -275,6 +279,7 @@
     <MESSAGE value="readme update" />
     <MESSAGE value="added feed sorting" />
     <MESSAGE value="improved forms and added navigation from them" />
-    <option name="LAST_COMMIT_MESSAGE" value="improved forms and added navigation from them" />
+    <MESSAGE value="added more logic to auth forms" />
+    <option name="LAST_COMMIT_MESSAGE" value="added more logic to auth forms" />
   </component>
 </project>
