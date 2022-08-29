@@ -13,9 +13,10 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { getFilteredOrderedPaginatedLinks } from "../../domain/query";
 import { Feed, Link, User } from "../../domain/types";
 import { storage } from "../../storage";
-import NextLink from "next/link";   // alt name bc conflict w domain/types/Link
+import { Input } from "antd";
 import { LinkCard } from "../../components/LinkCard";
-import styles from "../../styles/InfiniteScroll.module.css";
+import styles from "../../styles/Feed.module.css";
+
 
 export async function getServerSideProps() {
     return getFilteredOrderedPaginatedLinks("", 10, 0)
@@ -32,11 +33,12 @@ export async function getServerSideProps() {
 const Feed: NextPage = (props: any) => {
     const [feed, setFeed] = useState<Feed>(props);
     const [hasMore, setHasMore] = useState<boolean>(true);
+    const [filter, setFilter] = useState<string>('');
     const [user, setUser] = useState<User | undefined>();
 
     const getMoreLinks = async () => {
         const moreFeed = await getFilteredOrderedPaginatedLinks(
-            "", 10, feed.links.length
+            filter, 10, feed.links.length
         );
         console.log(moreFeed);
         if (moreFeed.links.length === 0) {
@@ -49,6 +51,7 @@ const Feed: NextPage = (props: any) => {
         }
     };
 
+    // This probably messes up SSR (if any) but I don't see another way
     useEffect(() => {
         const user = storage.getUser();
         if (user) {
@@ -57,6 +60,17 @@ const Feed: NextPage = (props: any) => {
     }, []);
 
     return (
+        <>
+            <div className={styles.feedControlPanel}>
+                Feed: {feed.count} post(s)
+                <div>
+                    <Input placeholder='filter results' onChange={(event) => {
+                        setFilter(event.target.value);
+                        getFilteredOrderedPaginatedLinks(event.target.value, 10, 0)
+                            .then(data => setFeed(data));
+                    }}/>
+                </div>
+            </div>
             <InfiniteScroll
                 className={styles.infiniteScroll}
                 dataLength={feed.links.length}
@@ -64,11 +78,12 @@ const Feed: NextPage = (props: any) => {
                 hasMore={hasMore}
                 loader={<h3>Loading...</h3>}
                 endMessage={<h3>You've reached the bottom of the feed</h3>}>
-                    {
-                        feed.links.map((link: Link, index) =>
-                            <LinkCard link={link} key={index}/>)
-                    }
+                {
+                    feed.links.map((link: Link, index) =>
+                        <LinkCard link={link} key={index}/>)
+                }
             </InfiniteScroll>
+        </>
     );
 };
 

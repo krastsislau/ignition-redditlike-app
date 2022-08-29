@@ -1,0 +1,18 @@
+.feedControlPanel {
+    height: 100px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    font-size: 20px;
+}
+
+.infiniteScroll {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
