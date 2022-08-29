@@ -14,7 +14,9 @@ const signUp = async (email: string,
                        email: "${email}",
                        password: "${password}") {
                     token
-                    user
+                    user {
+                        name
+                    }
                 }
             }`,
     }).then(res => res.data.signup);
@@ -30,7 +32,9 @@ const signIn = async (email: string,
                 login(email: "${email}",
                       password: "${password}") {
                     token
-                    user
+                    user {
+                        name
+                    }
                 }
             }`,
     }).then(res => res.data.login);
@@ -66,4 +70,4 @@ const voteForLink = async (linkId: number) => {
     }).then(res => res.data);
 };
 
-export { signUp, signIn };
+export { signUp, signIn, postNewLink, voteForLink };

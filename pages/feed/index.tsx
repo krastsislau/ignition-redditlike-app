@@ -1,7 +1,9 @@
 /*\
 Ok, so this approach is using client-side rendering which is fine but not good.
 
-The other approach might be better.
+The other, more SSR approach might be better (if it is possible).
+Other possible solutions:
+- https://swr.vercel.app/docs/pagination#useswrinfinite as mentioned in https://www.reddit.com/r/nextjs/comments/p7gjox/how_can_i_do_infinite_scrolling_in_next_with/
 \*/
 
 import { useState } from "react";

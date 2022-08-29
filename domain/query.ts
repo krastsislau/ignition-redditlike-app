@@ -32,6 +32,7 @@ const getAllLinks = async () : Promise<Feed> => {
 }
 
 // Get filtered, ordered, and paginated links
+// Include only the info required to display links in feed
 const getFilteredOrderedPaginatedLinks =
     async (pattern: string,
            // todo: add order rules
@@ -43,17 +44,13 @@ const getFilteredOrderedPaginatedLinks =
               feed(take: ${take}, skip: ${skip}, filter: "${pattern}") {
                 count
                 links {
-                  id
                   description
                   url
                   postedBy {
-                    id
                     name
                   }
                   votes {
-                    id
                     user {
-                      id
                       name
                     }
                   }
