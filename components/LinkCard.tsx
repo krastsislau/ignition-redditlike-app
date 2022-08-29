@@ -1,30 +1,37 @@
-import { useState } from "react";
-import { Link } from "../domain/types";
-import { Dropdown, Space, Menu } from "antd";
+import { useEffect, useState } from "react";
+import { User, Link, Vote } from "../domain/types";
+import { voteForLink } from "../domain/mutation";
+
+import { Dropdown, Menu, Switch } from "antd";
 import { SmartLink } from "./SmartLink";
 import { UpvoteList } from "./UpvoteList";
 import styles from "../styles/LinkCard.module.css";
 
 interface LinkCardProps {
     link: Link,
-    key: number
+    user: User | undefined,
 }
 
 const LinkCard = (props: LinkCardProps) => {
     const [visible, setVisible] = useState<boolean>(false);
-
-    const votes = props.link.votes.map((vote, index) => {
-        return {
-            key: index.toString(),
-            label: vote.user.name
-        }});
+    const [votes, setVotes] = useState<Array<Vote>>(props.link.votes);
+    const [userUpvoted, setUserUpvoted] = useState<boolean>(false);
 
     const handleVisibleChange = (flag: boolean) => {
         setVisible(flag);
     };
 
+    useEffect(() => {
+        console.log(props.user)
+        if (typeof props.user !== 'undefined' &&
+            props.link.votes.map(vote => vote.user.id)
+                .includes(props.user.id)) {
+            setUserUpvoted(true);
+        }
+    }, [votes])
+
     return(
-        <div className={styles.card} key={props.key}>
+        <div className={styles.card}>
             <div className={styles.cardTopSection} style={{
                 fontStyle: props.link.description ? 'normal' : 'italic',
             }}>
@@ -34,10 +41,35 @@ const LinkCard = (props: LinkCardProps) => {
                                   '(no description)'}/>
             </div>
             <div className={styles.cardBottomSection}>
-                <button>upvote</button>
+                <Switch checked={userUpvoted}
+                        disabled={typeof props.user === 'undefined' || userUpvoted}
+                        checkedChildren="upvoted"
+                        unCheckedChildren="not upvoted"
+                        style={{
+                            width: 150,
+                        }}
+                        onChange={() => {
+                            console.log(props.link)
+                            voteForLink(props.link.id)
+                                .then((data) => {
+                                    console.log(data);
+                                    setUserUpvoted(true);
+                                    if (props.user) {
+                                        setVotes([...votes, {
+                                            id: data.id,
+                                            link: data.link,
+                                            user: {
+                                                ...data.user,
+                                                name: props.user?.name,
+                                            }
+                                        }]);
+                                    }
+
+                                })
+                        }}/>
                 <Dropdown overlay={
                     <Menu items={
-                        props.link.votes.map((vote, index) => {
+                        votes.map((vote, index) => {
                             return {
                                 key: index,
                                 label: vote.user.name ? vote.user.name : '(no name)'
@@ -45,7 +77,7 @@ const LinkCard = (props: LinkCardProps) => {
                         })}/>
                 } onVisibleChange={handleVisibleChange} visible={visible}>
                     <a onClick={e => e.preventDefault()}>
-                        <UpvoteList votes={props.link.votes}/>
+                        <UpvoteList votes={votes}/>
                     </a>
                 </Dropdown>
 

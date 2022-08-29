@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 import client from "../apollo-client";
-import { AuthPayload } from "./types";
+import { AuthPayload, Vote } from "./types";
 
 // Sign up with email, password, and name and get token and user object.
 // If error (email not unique), the caller catches it.
@@ -61,7 +61,7 @@ const postNewLink = async (url: string, description: string) => {
 // AUTH REQUIRED
 // Vote for a link with link id and get the vote's id.
 // If error (invalid token | invalid linkId), the caller catches it.
-const voteForLink = async (linkId: number) => {
+const voteForLink = async (linkId: number) : Promise<Vote> => {
     return client.mutate({
         mutation: gql`
             mutation {
@@ -69,7 +69,7 @@ const voteForLink = async (linkId: number) => {
                     id
                 }
             }`
-    }).then(res => res.data);
+    }).then(res => res.data.vote);
 };
 
 export { signUp, signIn, postNewLink, voteForLink };

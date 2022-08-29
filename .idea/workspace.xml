@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ba5e69b-01e0-47a3-962f-6be3ad1b676a" name="Changes" comment="fixed antd; added votes display">
+    <list default="true" id="9ba5e69b-01e0-47a3-962f-6be3ad1b676a" name="Changes" comment="added feed filtering">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/LinkCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/LinkCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/mutation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/domain/mutation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/domain/query.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/feed/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/feed/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/InfiniteScroll.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/Feed.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/LinkCard.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/LinkCard.module.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +51,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1661696014627</updated>
-      <workItem from="1661696016445" duration="40087000" />
+      <workItem from="1661696016445" duration="44187000" />
     </task>
     <task id="LOCAL-00001" summary="adding api stuff">
       <created>1661718424971</created>
@@ -190,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661782899923</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="added feed filtering">
+      <created>1661784269053</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1661784269054</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,6 +238,7 @@
     <MESSAGE value="added upvote list in link card" />
     <MESSAGE value="a few minor feed code changes" />
     <MESSAGE value="fixed antd; added votes display" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed antd; added votes display" />
+    <MESSAGE value="added feed filtering" />
+    <option name="LAST_COMMIT_MESSAGE" value="added feed filtering" />
   </component>
 </project>

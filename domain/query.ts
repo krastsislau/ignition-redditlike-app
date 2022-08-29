@@ -44,6 +44,7 @@ const getFilteredOrderedPaginatedLinks =
               feed(take: ${take}, skip: ${skip}, filter: "${pattern}") {
                 count
                 links {
+                  id
                   description
                   url
                   postedBy {

@@ -34,7 +34,10 @@ const Feed: NextPage = (props: any) => {
     const [feed, setFeed] = useState<Feed>(props);
     const [hasMore, setHasMore] = useState<boolean>(true);
     const [filter, setFilter] = useState<string>('');
-    const [user, setUser] = useState<User | undefined>();
+
+    // todo: reconsider this
+    const [user, setUser] = useState<User | undefined>(undefined);
+    const [isSignedIn, setIsSignedIn] = useState<boolean | undefined>(undefined);
 
     const getMoreLinks = async () => {
         const moreFeed = await getFilteredOrderedPaginatedLinks(
@@ -56,6 +59,9 @@ const Feed: NextPage = (props: any) => {
         const user = storage.getUser();
         if (user) {
             setUser(user);
+            setIsSignedIn(true);
+        } else {
+            setIsSignedIn(false);
         }
     }, []);
 
@@ -71,18 +77,21 @@ const Feed: NextPage = (props: any) => {
                     }}/>
                 </div>
             </div>
-            <InfiniteScroll
-                className={styles.infiniteScroll}
-                dataLength={feed.links.length}
-                next={getMoreLinks}
-                hasMore={hasMore}
-                loader={<h3>Loading...</h3>}
-                endMessage={<h3>You've reached the bottom of the feed</h3>}>
-                {
-                    feed.links.map((link: Link, index) =>
-                        <LinkCard link={link} key={index}/>)
-                }
-            </InfiniteScroll>
+            {
+                typeof isSignedIn !== "undefined" &&
+                <InfiniteScroll
+                    className={styles.infiniteScroll}
+                    dataLength={feed.links.length}
+                    next={getMoreLinks}
+                    hasMore={hasMore}
+                    loader={<h3>Loading...</h3>}
+                    endMessage={<h3>You've reached the bottom of the feed</h3>}>
+                    {
+                        feed.links.map((link: Link, index) =>
+                            <LinkCard link={link} key={index} user={user}/>)
+                    }
+                </InfiniteScroll>
+            }
         </>
     );
 };
