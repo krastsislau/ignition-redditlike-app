@@ -1,4 +1,5 @@
 import { Link } from "../domain/types";
+import { SmartLink } from "./SmartLink";
 import styles from "../styles/LinkCard.module.css";
 
 interface LinkCardProps {
@@ -12,9 +13,10 @@ const LinkCard = (props: LinkCardProps) => {
             <div className={styles.cardTopSection} style={{
                 fontStyle: props.link.description ? 'normal' : 'italic',
             }}>
-                <a target="_blank" href={props.link.url} rel="noopener noreferrer">
-                    {props.link.description ? props.link.description : '(no description)'}
-                </a>
+                <SmartLink url={props.link.url}
+                           label={props.link.description ?
+                                  props.link.description :
+                                  '(no description)'}/>
             </div>
             <div className={styles.cardBottomSection}>
                 <button>upvote</button>
