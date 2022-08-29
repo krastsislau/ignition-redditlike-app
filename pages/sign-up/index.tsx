@@ -60,6 +60,7 @@ class SignUpForm extends React.Component<any, SignUpFormState> {
     render() {
         return (
             <form className={styles.form} onSubmit={this.handleSubmit}>
+                <Link href='/'>Go back to main page</Link>
                 Sign up
                 <Input type='text' name='email' placeholder='email'
                        value={this.state.email}

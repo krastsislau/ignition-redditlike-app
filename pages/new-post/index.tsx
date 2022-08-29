@@ -1,12 +1,15 @@
 import React from "react";
 import type { NextPage } from 'next';
+import Link from "next/link";
 import { Input } from 'antd';
 import styles from "../../styles/Form.module.css";
 
 import { postNewLink } from "../../domain/mutation";
-import Link from "next/link";
+import { storage } from "../../storage";
+
 
 interface NewPostFormState {
+    isSignedIn: boolean,
     url: string,
     description: string,
     success: boolean | undefined,
@@ -17,6 +20,7 @@ class NewPostForm extends React.Component<any, NewPostFormState> {
     constructor(props: any) {
         super(props);
         this.state = {
+            isSignedIn: false,
             url: '',
             description: '',
             success: undefined,
@@ -50,28 +54,47 @@ class NewPostForm extends React.Component<any, NewPostFormState> {
             });
     }
 
+    componentDidMount() {
+        const user = storage.getUser();
+        if (user) {
+            this.setState({ isSignedIn: true });
+        }
+    }
+
     render() {
         return (
             <form className={styles.form} onSubmit={this.handleSubmit}>
-                Create new post
-                <Input type='text' name='url' placeholder='url'
-                       value={this.state.url}
-                       onChange={(event) => this.handleUrlChange(event)}/>
-                <Input type='text' name='description' placeholder='description'
-                       value={this.state.description}
-                       onChange={(event) => this.handleDescriptionChange(event)}/>
+                <Link href='/'>Go back to main page</Link>
                 {
-                    typeof this.state.success === 'undefined' ?
-                        <button type='submit'>create post</button> :
-                        this.state.success ?
-                            <>
-                                You have successfully created new post!
-                                <Link href='/feed'>Go to feed</Link>
-                            </> :
-                            <>
-                                Something went wrong!
-                            </>
+                    this.state.isSignedIn ?
+                        <>
+                            Create new post
+                            <Input type='text' name='url' placeholder='url'
+                                   value={this.state.url}
+                                   onChange={(event) => this.handleUrlChange(event)}/>
+                            <Input type='text' name='description' placeholder='description'
+                                   value={this.state.description}
+                                   onChange={(event) => this.handleDescriptionChange(event)}/>
+                            {
+                                typeof this.state.success === 'undefined' ?
+                                    <button type='submit'>create post</button> :
+                                    this.state.success ?
+                                        <>
+                                            You have successfully created new post!
+                                            <Link href='/feed'>Go to feed</Link>
+                                        </> :
+                                        <>
+                                            Something went wrong!
+                                        </>
+                            }
+                        </>
+                        :
+                        <>
+                            You need to be signed in to create a post
+                            <Link href='/sign-in'>Go to sign in page</Link>
+                        </>
                 }
+
             </form>
         );
     }

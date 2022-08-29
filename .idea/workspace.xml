@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ba5e69b-01e0-47a3-962f-6be3ad1b676a" name="Changes" comment="readme update">
+    <list default="true" id="9ba5e69b-01e0-47a3-962f-6be3ad1b676a" name="Changes" comment="added feed sorting">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/domain/query.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/domain/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/feed/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/feed/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/Feed.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/Feed.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/new-post/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/new-post/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/sign-in/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/sign-in/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/sign-up/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/sign-up/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/Form.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/Form.module.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +50,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1661696014627</updated>
-      <workItem from="1661696016445" duration="49511000" />
+      <workItem from="1661696016445" duration="50570000" />
     </task>
     <task id="LOCAL-00001" summary="adding api stuff">
       <created>1661718424971</created>
@@ -220,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661790745767</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="added feed sorting">
+      <created>1661793593832</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1661793593832</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,6 +268,7 @@
     <MESSAGE value="upvotes implemented" />
     <MESSAGE value="fixed component key issues" />
     <MESSAGE value="readme update" />
-    <option name="LAST_COMMIT_MESSAGE" value="readme update" />
+    <MESSAGE value="added feed sorting" />
+    <option name="LAST_COMMIT_MESSAGE" value="added feed sorting" />
   </component>
 </project>

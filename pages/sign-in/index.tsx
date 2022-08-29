@@ -56,6 +56,7 @@ class SignInForm extends React.Component<any, SignInFormState> {
     render() {
         return (
             <form className={styles.form} onSubmit={this.handleSubmit}>
+                <Link href='/'>Go back to main page</Link>
                 Sign in
                 <Input type='text' name='email' placeholder='email'
                        value={this.state.email}
