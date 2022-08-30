@@ -21,7 +21,7 @@ const { Search } = Input;
 const { Option } = Select;
 
 export async function getServerSideProps() {
-    return getFilteredOrderedPaginatedLinks("", LinkSortRule.None, 10, 0)
+    return getFilteredOrderedPaginatedLinks("", LinkSortRule.None, 20, 0)
         .then(data => {
             return {
                 props: {
