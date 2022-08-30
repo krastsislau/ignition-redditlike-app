@@ -10,6 +10,10 @@
 - Ant Design
 - ...
 
+## Subsciptions
+
+These are implemented in a [separate PR](https://github.com/krastsislau/ignition-redditlike-app/pull/1).
+
 ## Things to note
 
 - I don't have prior experience with Apollo and GraphQL
