@@ -7,13 +7,16 @@ Other possible solutions:
 \*/
 
 import {useEffect, useState} from "react";
+import {useSubscription} from "@apollo/client";
 import type {NextPage} from 'next';
 import InfiniteScroll from "react-infinite-scroll-component";
 
+import client from "../../apollo-client";
 import {getFilteredOrderedPaginatedLinks} from "../../api/query";
 import {Feed, Link, LinkSortRule, User} from "../../api/types";
+import {LINKS_SUBSCRIPTION} from "../../api/subscription";
 import {storage} from "../../storage";
-import {Input, Select} from "antd";
+import {Input, Select, notification} from "antd";
 import {LinkCard} from "../../components/LinkCard";
 import styles from "../../styles/Feed.module.css";
 
@@ -41,6 +44,26 @@ const Feed: NextPage = (props: any) => {
     // todo: reconsider this
     const [user, setUser] = useState<User | undefined>(undefined);
     const [isSignedIn, setIsSignedIn] = useState<boolean | undefined>(undefined);
+
+    const { data, loading } = useSubscription(
+        LINKS_SUBSCRIPTION,
+        {
+            client
+        }
+    );
+
+    useEffect(() => {
+        if (data) {
+            notification.open({
+                message: 'New link has just been added!',
+                description:
+                    `By ${data.newLink.postedBy.name}`,
+                onClick: () => {
+
+                },
+            });
+        }
+    }, [data]);
 
     const getMoreLinks = async () => {
         const moreFeed = await getFilteredOrderedPaginatedLinks(
