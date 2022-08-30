@@ -1,7 +1,7 @@
 import React from "react";
 import type { NextPage } from 'next';
 
-import { signIn } from "../../domain/mutation";
+import { signIn } from "../../api/mutation";
 import { storage } from "../../storage";
 import { Input } from 'antd';
 import styles from "../../styles/Form.module.css";

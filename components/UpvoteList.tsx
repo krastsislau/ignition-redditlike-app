@@ -1,4 +1,4 @@
-import { Vote } from "../domain/types";
+import { Vote } from "../api/types";
 import { Avatar } from "antd";
 import styles from "../styles/UpvoteList.module.css";
 import avatarStyles from "../styles/Avatar.module.css";
@@ -15,7 +15,7 @@ const UpvoteList = (props: UpvoteListProps) => {
             {
                 props.votes.length
                     ?
-                    props.votes.slice(0, 3).map((vote, index) =>
+                    props.votes.slice(0, 3).map((vote) =>
                     <Avatar key={vote.id} className={avatarStyles.Avatar}
                             style={{
                                 fontStyle: vote.user.name ? 'normal' : 'italic',

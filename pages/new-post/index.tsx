@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Input } from 'antd';
 import styles from "../../styles/Form.module.css";
 
-import { postNewLink } from "../../domain/mutation";
+import { postNewLink } from "../../api/mutation";
 import { storage } from "../../storage";
 
 

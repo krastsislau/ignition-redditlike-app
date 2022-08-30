@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { User, Link, Vote } from "../domain/types";
-import { voteForLink } from "../domain/mutation";
+import { User, Link, Vote } from "../api/types";
+import { voteForLink } from "../api/mutation";
 
 import { Dropdown, Menu, Switch } from "antd";
 import { SmartLink } from "./SmartLink";

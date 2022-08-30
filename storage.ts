@@ -1,4 +1,4 @@
-import { User } from "./domain/types";
+import { User } from "./api/types";
 
 const storagePrefix = 'rasteeslove_ignition_';
 

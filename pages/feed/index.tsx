@@ -10,8 +10,8 @@ import {useEffect, useState} from "react";
 import type {NextPage} from 'next';
 import InfiniteScroll from "react-infinite-scroll-component";
 
-import {getFilteredOrderedPaginatedLinks} from "../../domain/query";
-import {Feed, Link, LinkSortRule, User} from "../../domain/types";
+import {getFilteredOrderedPaginatedLinks} from "../../api/query";
+import {Feed, Link, LinkSortRule, User} from "../../api/types";
 import {storage} from "../../storage";
 import {Input, Select} from "antd";
 import {LinkCard} from "../../components/LinkCard";
