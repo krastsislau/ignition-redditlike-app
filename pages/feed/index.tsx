@@ -13,10 +13,10 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 import client from "../../apollo-client";
 import {getFilteredOrderedPaginatedLinks} from "../../api/query";
-import {Feed, Link, LinkSortRule, User} from "../../api/types";
-import {LINKS_SUBSCRIPTION} from "../../api/subscription";
+import {Feed, Link, LinkSortRule, User, Vote} from "../../api/types";
+import {LINKS_SUBSCRIPTION, VOTES_SUBSCRIPTION} from "../../api/subscription";
 import {storage} from "../../storage";
-import {Input, Select, notification} from "antd";
+import {Input, notification, Select} from "antd";
 import {LinkCard} from "../../components/LinkCard";
 import styles from "../../styles/Feed.module.css";
 
@@ -45,25 +45,100 @@ const Feed: NextPage = (props: any) => {
     const [user, setUser] = useState<User | undefined>(undefined);
     const [isSignedIn, setIsSignedIn] = useState<boolean | undefined>(undefined);
 
-    const { data, loading } = useSubscription(
+    const {  } = useSubscription(
         LINKS_SUBSCRIPTION,
         {
-            client
-        }
+            client,
+            onSubscriptionData: options => {
+                const link: Link = options.subscriptionData.data.newLink;
+                notification.open({
+                    message: 'New link has just been added!',
+                    description:
+                        `By ${link.postedBy.name}`,
+                });
+                if (link.description.includes(filter)) {
+                    const linksCopy: Array<Link> = JSON.parse(JSON.stringify(feed.links));
+                    switch (linkSortRule) {
+                        case LinkSortRule.None:
+                            if (!hasMore) {
+                                linksCopy.push(link);
+                            }
+                            break;
+                        case LinkSortRule.DescriptionAsc:
+                            if (linksCopy[linksCopy.length-1].description > link.description) {
+                                linksCopy.push(link);
+                                linksCopy.sort((a, b) =>
+                                    a.description < b.description ? -1 : 1);
+                            }
+                            break;
+                        case LinkSortRule.DescriptionDesc:
+                            if (linksCopy[linksCopy.length-1].description < link.description) {
+                                linksCopy.push(link);
+                                linksCopy.sort((a, b) =>
+                                    a.description > b.description ? -1 : 1);
+                            }
+                            break;
+                        case LinkSortRule.UrlAsc:
+                            if (linksCopy[linksCopy.length-1].url > link.url) {
+                                linksCopy.push(link);
+                                linksCopy.sort((a, b) =>
+                                    a.url < b.url ? -1 : 1);
+                            }
+                            break;
+                        case LinkSortRule.UrlDesc:
+                            if (linksCopy[linksCopy.length-1].url < link.url) {
+                                linksCopy.push(link);
+                                linksCopy.sort((a, b) =>
+                                    a.url > b.url ? -1 : 1);
+                            }
+                            break;
+                    }
+                    setFeed(prev => ({
+                        count: prev.count + 1,
+                        links: linksCopy,
+                    }));
+                }
+            },
+        },
     );
 
-    useEffect(() => {
-        if (data) {
-            notification.open({
-                message: 'New link has just been added!',
-                description:
-                    `By ${data.newLink.postedBy.name}`,
-                onClick: () => {
-
-                },
-            });
-        }
-    }, [data]);
+    const {  } = useSubscription(
+        VOTES_SUBSCRIPTION,
+        {
+            client,
+            onSubscriptionData: options => {
+                const vote: Vote = options.subscriptionData.data.newVote;
+                if (user && vote.user.id === user.id) {
+                    return;
+                }
+                notification.open({
+                    message: 'New vote has just been added!',
+                    description:
+                        `By ${vote.user.name}`,
+                });
+                const votedLinkIndex = feed.links.findIndex(link => link.id === vote.link.id);
+                if (votedLinkIndex === -1) {
+                    return;
+                } else {
+                    console.log(vote)
+                    setFeed(prev => ({
+                        count: prev.count,
+                        links: [
+                            ...prev.links.slice(0, votedLinkIndex),
+                            {
+                                ...prev.links[votedLinkIndex],
+                                votes: [
+                                    ...prev.links[votedLinkIndex].votes,
+                                    vote,
+                                ]
+                            },
+                            ...prev.links.slice(votedLinkIndex + 1),
+                        ]
+                    }))
+                }
+            },
+        },
+    );
 
     const getMoreLinks = async () => {
         const moreFeed = await getFilteredOrderedPaginatedLinks(
@@ -150,7 +225,7 @@ const Feed: NextPage = (props: any) => {
                     endMessage={<h3>You've reached the bottom of the feed</h3>}>
                     {
                         feed.links.map((link: Link) =>
-                            <LinkCard link={link} key={link.id} user={user}/>)
+                            <LinkCard link={link} key={link.id+link.votes.length} user={user}/>)
                     }
                 </InfiniteScroll>
             }

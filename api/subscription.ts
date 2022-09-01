@@ -10,6 +10,13 @@ const LINKS_SUBSCRIPTION = gql`
           id
           name
         }
+        votes {
+          id
+          user {
+            id
+            name
+          }
+        }
       }
     }`;
 
@@ -18,12 +25,11 @@ const VOTES_SUBSCRIPTION = gql`
       newVote {
         id
         link {
-          url
-          description
+          id
         }
         user {
+          id
           name
-          email
         }
       }
     }`;
