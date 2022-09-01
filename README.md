@@ -14,13 +14,13 @@
 
 These are implemented in a [separate PR](https://github.com/krastsislau/ignition-redditlike-app/pull/1).
 
-## Project timeline
+## Project timeline (UTC+3)
 
 - Aug 28 evening: setting up stuff (initial Next.js + Apollo configuring)
 - Aug 29:
     - 13:00-17:00: most of the work
     - 17:00-later: some extra beautifying and edge cases coverage
-- Aug 30: a couple of adjustments and occasional GraphQL subscriptions testing
+- Aug 30-later: a couple of adjustments and occasional GraphQL subscriptions testing
 
 ## Things to note
 
