@@ -32,7 +32,9 @@ export async function getServerSideProps() {
                 }
             }
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            console.log(err);   // this runs on server tho
+        });
 }
 
 const Feed: NextPage = (props: any) => {
@@ -182,6 +184,11 @@ const Feed: NextPage = (props: any) => {
                                 .then(data => {
                                     console.log(data);
                                     setFeed(data);
+                                })
+                                .catch(err => {
+                                    notification['error']({
+                                        message: 'Something went wrong!',
+                                    });
                                 });
                             setHasMore(true);
                         }}
@@ -203,6 +210,11 @@ const Feed: NextPage = (props: any) => {
                             .then(data => {
                                 console.log(data);
                                 setFeed(data);
+                            })
+                            .catch(err => {
+                                notification['error']({
+                                    message: 'Something went wrong!',
+                                });
                             });
                         setHasMore(true);
                     }}>
